@@ -13,6 +13,21 @@ class CleanerTest {
 
     @Test
     @DisplayName("cleaner test")
+    void test() throws InterruptedException {
+        Cleaner cleaner = Cleaner.create(); // cleaner 객체 생성
+
+        List<Object> resourceToCleanUp = new ArrayList<>();
+        BigObject bigObject = new BigObject(resourceToCleanUp);
+        cleaner.register(bigObject, new BigObject.ResourceCleaner(resourceToCleanUp));
+
+        // gc가 일어나면서 cleaner가 동작한다.
+        bigObject = null;
+        System.gc();
+        Thread.sleep(3000L);
+    }
+
+    @Test
+    @DisplayName("cleaner test")
     void teenager() throws InterruptedException {
         new Room(99); // 생성 후 바로 소멸되기 때문에 gc의 대상이 된다.
         System.gc();
@@ -25,19 +40,5 @@ class CleanerTest {
     void adult() {
 
         try (Room room = new Room(7)) {}
-    }
-
-    @Test
-    void test() throws InterruptedException {
-        Cleaner cleaner = Cleaner.create();
-
-        List<Object> resourceToCleanUp = new ArrayList<>();
-        BigObject bigObject = new BigObject(resourceToCleanUp);
-        cleaner.register(bigObject, new BigObject.ResourceCleaner(resourceToCleanUp));
-
-        // gc가 일어나면서 cleaner가 동작한다.
-        bigObject = null;
-        System.gc();
-        Thread.sleep(3000L);
     }
 }

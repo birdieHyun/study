@@ -33,16 +33,16 @@ class ReferenceTest {
         SoftReference<Object> softReference = new SoftReference<>(strongReference);
         strongReference = null;
 
-//        int rows = 11_392;
-//        int cols = 11_392;
-//        int[][] largeArray = new int[rows][cols];
-//
-//        for (int i = 0; i < rows; i++) {
-//
-//            for (int j = 0; j < cols; j++) {
-//                largeArray[i][j] = i + j;
-//            }
-//        }
+        int rows = 11_392;
+        int cols = 11_392;
+        int[][] largeArray = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+
+            for (int j = 0; j < cols; j++) {
+                largeArray[i][j] = i + j;
+            }
+        }
 
         System.gc();
         Thread.sleep(2000L);

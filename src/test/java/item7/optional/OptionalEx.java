@@ -38,6 +38,6 @@ class OptionalEx {
     void test() {
 
         Channel channel = new Channel();
-        channel.test(null);
+        channel.optionalParameter(null);
     }
 }

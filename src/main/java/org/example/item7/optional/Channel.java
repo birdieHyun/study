@@ -24,7 +24,7 @@ public class Channel {
         return Optional.of(new Membership());
     }
 
-    public String test(Optional<Object> object) {
+    public String optionalParameter(Optional<Object> object) {
 
         return object.map(Object::toString).orElse("empty");
     }
