@@ -9,7 +9,7 @@ public class Symmetry {
         System.out.println(point.equals(colorPoint));
         System.out.println(colorPoint.equals(point));
 
-        //--------------------------추이성 문제 --------------------------------------
+        //--------------------------추이성 문제 (a -> b -> c) --------------------------------------
         ColorPoint p1 = new ColorPoint(1, 1, Color.RED);
         Point p2 = new Point(1, 1);
         ColorPoint p3 = new ColorPoint(1, 1, Color.BLUE);

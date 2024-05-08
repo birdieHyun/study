@@ -1,7 +1,5 @@
 package org.example.item11.hashCode;
 
-import lombok.RequiredArgsConstructor;
-
 public class PhoneNumNoHashCode {
 
     private final int areaCode;
@@ -25,5 +23,10 @@ public class PhoneNumNoHashCode {
         }
         PhoneNumNoHashCode that = (PhoneNumNoHashCode) o;
         return areaCode == that.areaCode && prefix == that.prefix && lineNum == that.lineNum;
+    }
+
+    @Override
+    public int hashCode() {
+        return 1000;
     }
 }

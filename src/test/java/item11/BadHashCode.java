@@ -12,7 +12,8 @@ class BadHashCode {
 
         Map<PhoneNumNoHashCode, String> map = new HashMap<>();
         PhoneNumNoHashCode num1 = new PhoneNumNoHashCode(111, 222, 333);
-        PhoneNumNoHashCode num2 = new PhoneNumNoHashCode(111, 222, 333);
+//        PhoneNumNoHashCode num2 = new PhoneNumNoHashCode(111, 222, 333);
+        PhoneNumNoHashCode num2 = new PhoneNumNoHashCode(111, 222, 444);
 
         System.out.println(num1.equals(num2));
 

@@ -30,5 +30,6 @@ public class CounterPointerTest {
 //        Point p5 = new item10.equals.consistency.ColorPoint(1, 0, Color.RED); 이렇게 할 수 없음 -> composition을 사용했기 떄문에 Point View를 colorpoint 안에 구현함
         Point p5 = new ColorPointComposition(1, 0, Color.RED).asPoint();
         System.out.println(onUnitCircle(p5));
+        System.out.println(p3.equals(p4)); // 일괄성 - true
     }
 }
