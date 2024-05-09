@@ -34,5 +34,12 @@ class WeakTest {
         Thread.sleep(3000L);
 
         System.out.println("캐시 사이즈 : " + repository.getCacheSize());
+
+        System.out.println("cacheKey null 처리 후");
+        cacheKey = null;
+        System.gc();
+        Thread.sleep(3000L);
+
+        System.out.println("캐시 사이즈 : " + repository.getCacheSize());
     }
 }

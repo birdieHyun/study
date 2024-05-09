@@ -39,6 +39,7 @@ class StringExample {
     }
 
     @Test
+    @DisplayName("String + test")
     void test4() {
         long startTime = System.currentTimeMillis();
         String result = "";
@@ -52,6 +53,7 @@ class StringExample {
     }
 
     @Test
+    @DisplayName("StringBuilder test")
     void test5() {
         long startTime = System.currentTimeMillis();
         StringBuilder result = new StringBuilder();

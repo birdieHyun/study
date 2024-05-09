@@ -9,13 +9,13 @@ public class ColorPoint extends Point{
         this.color = color;
     }
 
-//    @Override
-//    public boolean equals(Object o) { // 대칭성 위배
-//        if (!(o instanceof ColorPoint)){
-//            return false;
-//        }
-//        return super.equals(o) && ((ColorPoint) o).color == color;
-//    }
+    @Override
+    public boolean equals(Object o) { // 대칭성 위배
+        if (!(o instanceof ColorPoint)){
+            return false;
+        }
+        return super.equals(o) && ((ColorPoint) o).color == color;
+    }
 
 
 

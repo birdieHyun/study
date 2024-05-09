@@ -33,8 +33,8 @@ class ReferenceTest {
         SoftReference<Object> softReference = new SoftReference<>(strongReference);
         strongReference = null;
 
-        int rows = 11_392;
-        int cols = 11_392;
+        int rows = 12_392;
+        int cols = 12_392;
         int[][] largeArray = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
@@ -53,8 +53,42 @@ class ReferenceTest {
     }
 
     @Test
-    @DisplayName("Phantom Reference")
+    @DisplayName("Weak Reference")
+    void test5() throws InterruptedException {
+        WeakReference<Object> weakReference = new WeakReference<>(new Object());
+
+        System.gc();
+        Thread.sleep(2000L);
+
+        System.out.println(weakReference.get());
+    }
+
+    @Test
+    @DisplayName("soft reference")
     void test3() throws InterruptedException {
+        SoftReference<Object> soft = new SoftReference<>(new Object());
+
+        int rows = 11_392;
+        int cols = 11_392;
+        int[][] largeArray = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+
+            for (int j = 0; j < cols; j++) {
+                largeArray[i][j] = i + j;
+            }
+        }
+
+        System.gc();
+        Thread.sleep(2000L);
+
+        // 메모리가 충분하기 때문에 없어지지 않는다.
+        System.out.println(soft.get());
+    }
+
+    @Test
+    @DisplayName("Phantom Reference")
+    void test4() throws InterruptedException {
         BigObject strongReference = new BigObject();
         ReferenceQueue<BigObject> rq = new ReferenceQueue<>();
 
@@ -70,7 +104,7 @@ class ReferenceTest {
         Thread.sleep(2000L);
 
         // null 처리로 인해 객체의 참조가 해제되었지만 queue에 들어감
-        // 그러나 isEnqueued()는 deprecated
+        // isEnqueued()는 deprecated
 //        System.out.println(phantomReference.isEnqueued());
 
         Reference<? extends BigObject> reference = rq.poll();
