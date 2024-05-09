@@ -66,5 +66,12 @@ class StringExample {
         System.out.println((endTime - startTime) + "ms");
     }
 
+    public static void main(String[] args) {
+
+        int a = 1;
+        long b = 2;
+
+        long c = b + a;
+    }
 
 }

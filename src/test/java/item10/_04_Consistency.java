@@ -2,14 +2,10 @@ package item10;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.util.Date;
-import org.example.item10.equals.symmetry.Color;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class _04_Consistency {
-
 
     @Test
     @DisplayName("uri 일관성 위배")

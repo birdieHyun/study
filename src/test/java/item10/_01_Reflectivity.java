@@ -14,17 +14,6 @@ class _01_Reflectivity {
         System.out.println(point.equals(point));
     }
 
-    @Test
-    @DisplayName("Timestamp는 Datetime을 상속받았다.")
-    void test() {
-        long time = System.currentTimeMillis();
-        Timestamp timestamp = new Timestamp(time);
-        Date date = new Date(time);
-
-        System.out.println(date.equals(timestamp)); // true
-        System.out.println(timestamp.equals(date)); // false
-    }
-
     static class Point{
         private int x;
         private int y;

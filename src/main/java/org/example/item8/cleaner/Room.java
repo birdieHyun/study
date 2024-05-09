@@ -31,7 +31,6 @@ public class Room implements AutoCloseable{
             this.numJunkPiles = numJunkPiles;
         }
 
-        // close 메서드나 cleaner가 호출된다.
         @Override
         public void run() {
             System.out.println("Cleaning room");

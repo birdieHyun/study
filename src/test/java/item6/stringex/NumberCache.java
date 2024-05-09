@@ -33,11 +33,11 @@ class NumberCache {
 
     @Test
     void doubleCache() {
-        Double a = Double.valueOf("1.0");
-        Double b = Double.valueOf("1.0");
+        Double a = Double.valueOf("1");
+        Double b = Double.valueOf("1");
 
-        Double c = Double.valueOf("12341234.0");
-        Double d = Double.valueOf("12341234.0");
+        Double c = Double.valueOf("12341234");
+        Double d = Double.valueOf("12341234");
 
         System.out.println(a == b);
         System.out.println(c == d);

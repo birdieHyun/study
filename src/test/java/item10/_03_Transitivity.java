@@ -73,8 +73,6 @@ class _03_Transitivity {
         }
     }
 
-
-
     @Test
     @DisplayName("상속이 아닌 구성")
     void test3() {

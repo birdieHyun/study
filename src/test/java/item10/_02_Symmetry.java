@@ -1,5 +1,7 @@
 package item10;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import org.example.item10.equals.symmetry.Color;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,10 +9,22 @@ import org.junit.jupiter.api.Test;
 class _02_Symmetry {
 
     @Test
+    @DisplayName("Timestamp는 Datetime을 상속받았다.")
+    void timestamp() {
+        long time = System.currentTimeMillis();
+        Timestamp timestamp = new Timestamp(time);
+        Date date = new Date(time);
+
+        System.out.println(date.equals(timestamp)); // true
+        System.out.println(timestamp.equals(date)); // false
+    }
+
+
+    @Test
     @DisplayName("A -> B")
     void test() {
         CaseInsensitiveString cis = new CaseInsensitiveString("test");
-        String string = new String("test");
+        String string = new String("Test");
 
         System.out.println(cis.equals(string));
     }
@@ -19,14 +33,14 @@ class _02_Symmetry {
     @DisplayName("B -> A")
     void test2() {
         CaseInsensitiveString cis = new CaseInsensitiveString("test");
-        String string = new String("test");
+        String string = new String("Test");
 
         System.out.println(string.equals(cis));
     }
 
     @Test
     @DisplayName("Point equals")
-    void test3(){
+    void test3() {
         Point point = new Point(1, 2);
         ColorPoint colorPoint = new ColorPoint(1, 2, Color.RED);
 
@@ -35,14 +49,15 @@ class _02_Symmetry {
 
     @Test
     @DisplayName("ColorPoint equals")
-    void test4(){
+    void test4() {
         Point point = new Point(1, 2);
         ColorPoint colorPoint = new ColorPoint(1, 2, Color.RED);
 
         System.out.println(colorPoint.equals(point));
     }
 
-    static class CaseInsensitiveString{
+    static class CaseInsensitiveString {
+
         private final String s;
 
         public CaseInsensitiveString(String s) {
@@ -55,7 +70,7 @@ class _02_Symmetry {
             if (o instanceof CaseInsensitiveString) { // object가 case insensitive string일 경우
                 return s.equalsIgnoreCase(((CaseInsensitiveString) o).s);
             }
-            if (o instanceof String){ // object가 string일 경우 -> CaseInsensitiveString을 String과 마찬가지로 생각하겠다.
+            if (o instanceof String) { // object가 string일 경우 -> CaseInsensitiveString을 String과 마찬가지로 생각하겠다.
                 return s.equalsIgnoreCase((String) o);
             }
 
@@ -63,7 +78,8 @@ class _02_Symmetry {
         }
     }
 
-    static class Point{
+    static class Point {
+
         private final int x;
         private final int y;
 
@@ -83,7 +99,7 @@ class _02_Symmetry {
         }
     }
 
-    static class ColorPoint extends Point{
+    static class ColorPoint extends Point {
 
         private final Color color;
 
@@ -94,7 +110,7 @@ class _02_Symmetry {
 
         @Override
         public boolean equals(Object o) {
-            if (!(o instanceof ColorPoint)){
+            if (!(o instanceof ColorPoint)) {
                 return false;
             }
             return super.equals(o) && ((ColorPoint) o).color == color;

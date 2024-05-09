@@ -25,8 +25,8 @@ public class PhoneNumNoHashCode {
         return areaCode == that.areaCode && prefix == that.prefix && lineNum == that.lineNum;
     }
 
-    @Override
-    public int hashCode() {
-        return 1000;
-    }
+//    @Override
+//    public int hashCode() {
+//        return 1000;
+//    }
 }

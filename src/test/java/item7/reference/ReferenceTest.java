@@ -33,8 +33,8 @@ class ReferenceTest {
         SoftReference<Object> softReference = new SoftReference<>(strongReference);
         strongReference = null;
 
-        int rows = 12_392;
-        int cols = 12_392;
+        int rows = 11_392;
+        int cols = 11_392;
         int[][] largeArray = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
@@ -48,13 +48,14 @@ class ReferenceTest {
         Thread.sleep(2000L);
 
         // 메모리가 충분하기 때문에 없어지지 않는다.
-        System.out.println(softReference.get());
         System.out.println(strongReference);
+        System.out.println(softReference.get());
     }
 
     @Test
     @DisplayName("Weak Reference")
     void test5() throws InterruptedException {
+
         WeakReference<Object> weakReference = new WeakReference<>(new Object());
 
         System.gc();
@@ -66,6 +67,7 @@ class ReferenceTest {
     @Test
     @DisplayName("soft reference")
     void test3() throws InterruptedException {
+
         SoftReference<Object> soft = new SoftReference<>(new Object());
 
         int rows = 11_392;
@@ -82,13 +84,13 @@ class ReferenceTest {
         System.gc();
         Thread.sleep(2000L);
 
-        // 메모리가 충분하기 때문에 없어지지 않는다.
         System.out.println(soft.get());
     }
 
     @Test
     @DisplayName("Phantom Reference")
     void test4() throws InterruptedException {
+
         BigObject strongReference = new BigObject();
         ReferenceQueue<BigObject> rq = new ReferenceQueue<>();
 
@@ -100,17 +102,18 @@ class ReferenceTest {
             System.out.println("phantom reference 가 비어있습니다.");
         }
 
-        System.gc();
-        Thread.sleep(2000L);
-
-        // null 처리로 인해 객체의 참조가 해제되었지만 queue에 들어감
         // isEnqueued()는 deprecated
 //        System.out.println(phantomReference.isEnqueued());
+
+        System.gc();
+        Thread.sleep(2000L);
 
         Reference<? extends BigObject> reference = rq.poll();
         BigObjectPhantom bigObjectReference = (BigObjectPhantom) reference;
         bigObjectReference.cleanUp();
-        reference.clear();
-        System.out.println(reference);
+        reference.clear(); // 메모리 누수 방지
+
+        // 최종적으로 rq가 비어있게 된다.
+        System.out.println(rq.poll());
     }
 }

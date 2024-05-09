@@ -2,6 +2,7 @@ package item11;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import org.example.item11.hashCode.PhoneNumNoHashCode;
 import org.junit.jupiter.api.Test;
 
@@ -26,5 +27,15 @@ class BadHashCode {
         System.out.println(map.get(num1));
         System.out.println(map.get(num2));
         System.out.println(map.get(new PhoneNumNoHashCode(111, 222, 333)));
+    }
+
+    static class HashCodeEx {
+        private int x;
+        private int y;
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
     }
 }
