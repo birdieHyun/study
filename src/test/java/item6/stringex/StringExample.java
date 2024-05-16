@@ -12,11 +12,11 @@ class StringExample {
         String c = a.intern();
         String d = b.intern();
 
-        System.out.println(a == b);
-        System.out.println(b == c);
-        System.out.println(c == d);
-        System.out.println(a == c);
-        System.out.println(b == d);
+        System.out.println(a == b); // false false false
+        System.out.println(b == c); // false true false
+        System.out.println(c == d); // true true false
+        System.out.println(a == c); // false false true
+        System.out.println(b == d); // true true true
     }
 
     @Test

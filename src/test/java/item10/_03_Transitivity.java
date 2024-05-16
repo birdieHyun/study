@@ -85,7 +85,6 @@ class _03_Transitivity {
         System.out.println(cp1.equals(cp2));
 
         // 상속이었다면 추이성이 깨지지만, 구성을 사용했기 때문에 추이성에 문제가 없다.
-
         System.out.println(cp1.asPoint().equals(point));
         System.out.println(point.equals(cp2.asPoint()));
         System.out.println(cp1.asPoint().equals(cp2.asPoint()));

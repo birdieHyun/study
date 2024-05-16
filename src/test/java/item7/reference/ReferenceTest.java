@@ -33,8 +33,8 @@ class ReferenceTest {
         SoftReference<Object> softReference = new SoftReference<>(strongReference);
         strongReference = null;
 
-        int rows = 11_392;
-        int cols = 11_392;
+        int rows = 11_492;
+        int cols = 11_492;
         int[][] largeArray = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
@@ -102,7 +102,7 @@ class ReferenceTest {
             System.out.println("phantom reference 가 비어있습니다.");
         }
 
-        // isEnqueued()는 deprecated
+//         isEnqueued()는 deprecated
 //        System.out.println(phantomReference.isEnqueued());
 
         System.gc();

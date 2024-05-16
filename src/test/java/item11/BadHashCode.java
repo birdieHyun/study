@@ -1,6 +1,7 @@
 package item11;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.example.item11.hashCode.PhoneNumNoHashCode;
@@ -27,6 +28,7 @@ class BadHashCode {
         System.out.println(map.get(num1));
         System.out.println(map.get(num2));
         System.out.println(map.get(new PhoneNumNoHashCode(111, 222, 333)));
+        System.out.println(map.get(new PhoneNumNoHashCode(111, 222, 444)));
     }
 
     static class HashCodeEx {

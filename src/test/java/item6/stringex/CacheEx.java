@@ -15,8 +15,6 @@ public class CacheEx {
     @Test
     @DisplayName("char test")
     void test2() {
-        System.out.println(Character.valueOf((char) 127));
-
 
         System.out.println(Character.valueOf((char) -1) == Character.valueOf((char) -1));
         System.out.println(Character.valueOf((char) 0) == Character.valueOf((char) 0));
